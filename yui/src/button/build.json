@@ -1,0 +1,10 @@
+{
+    "name": "moodle-atto_yuja-button",
+    "builds": {
+        "moodle-atto_yuja-button": {
+            "jsfiles": [
+                "button.js"
+            ]
+        }
+    }
+}

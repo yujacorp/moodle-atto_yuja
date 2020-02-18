@@ -1,0 +1,7 @@
+{
+    "moodle-atto_yuja-button": {
+        "requires": [
+            "moodle-editor_atto-plugin"
+        ]
+    }
+}
