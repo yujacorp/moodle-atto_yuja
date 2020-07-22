@@ -23,6 +23,6 @@
  */
 
 $string['pluginname'] = 'YuJa for Atto';
-$string['notready'] = 'The YuJa Media Selector is still loading your YuJa content. Try again in a few seconds.';
-$string['phperror'] = 'The YuJa Media Selector experienced an error.  Please ensure your configuration information is correct and try refreshing the page. If the error persists, please contact YuJa Support.';
-$string['loadingerror'] = 'The YuJa Media Selector experienced an error while loading videos.  Please ensure your configuration information is correct and try refreshing the page. If the error persists, please contact YuJa Support.';
+$string['notready'] = 'The YuJa media selector is still loading your YuJa content. Try again in a few seconds.';
+$string['phperror'] = 'The YuJa media selector experienced an error.  Please ensure your configuration information is correct and try refreshing the page. If the error persists, please contact YuJa support.';
+$string['loadingerror'] = 'The YuJa media selector experienced an error while loading videos.  Please ensure your configuration information is correct and try refreshing the page. If the error persists, please contact YuJa support.';
