@@ -97,7 +97,7 @@
                 styles.push("" +
                     ".yuja-toast-message {\n" +
                     // Star logo positioning
-                    "    background-image: " + 
+                    "    background-image: " +
                     "url(\"data:image/png;base64," +
                     "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAB" +
                     "l0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARkSURBVEiJhZZNbFRVFMd/577XDwTiQg3YvuEjRYMLo6nsWAmR" +
@@ -108,7 +108,7 @@
                     "NuwgBYkWPAKoF0JfIwzGvllSqHKiHa/fy7wHlgdbGoRwEkNVi3DseMAoGDeajSzAcy6+9Xgl8BN9oqCc7GpD8+uQQ76G1Shx8Bx6A" +
                     "b3OieO6Dpff6N0VODG9Y6bmm36G1/lNLjIDVAJtrylVLvQMa7NIcRNCi5F5JtY9dTmVgWtNWKaXYFdgKImiyA6wbHVenQBXWFWhbbB" +
                     "2AwPsgehT1zEAXXDfqBThHNqtKK6k4X2BQe0qsAgXLSQCtwF/APyjkERfTnzsTENwCpofrXUdms4XXeG2GnAuVkOEB7FceA0GCAtQB" +
-                    "V9t9JgE4/d1msPAn8DazE4Iz+kD/Ynij0zZmZKPQlE/kXBS2WyY3Vpk4/dxmghmIh6qreLDYJINmau4JoMzCFcqDh4djHS8wc8j4BOQ" + 
+                    "V9t9JgE4/d1msPAn8DazE4Iz+kD/Ynij0zZmZKPQlE/kXBS2WyY3Vpk4/dxmghmIh6qreLDYJINmau4JoMzCFcqDh4djHS8wc8j4BOQ" +
                     "hMKfrU/tbCV+Xc7OzdJhKwBpgAmHar6+YTtCcKXxurTSFOX+gfqr+nnDt3oe5e4HkAY7Wpwy9cmn+2WDtVF1k34QKjwIPGmseAX+YD1e" +
                     "jvocE6tqJU+GNgKHYYwJ3O9ZUcbxxYH2IWhsFsiZajRpQRAGuILwaqmh3hSq7NON5FVe1R1Z4Zx7uIci1MmSeWCAjNYecyYoquzQKBqM" +
                     "ZPD8caFiCF8uFmYBvwW/TbhhCOT9kx/8jZtPeAhvgSgWbNgfhETuEUUO1Y7SkDU6k1K4Gtc1LCFcFpFJxGhCvcfii3RlhUkQB6gCpBPu" +
@@ -216,7 +216,7 @@
         }
 
         /**
-         * Toast messages are stackable and each needs to be unique. 
+         * Toast messages are stackable and each needs to be unique.
          * The uniqueness can be guaranteed with the jquery instance of classes count + 1
          * @returns {*}
          */

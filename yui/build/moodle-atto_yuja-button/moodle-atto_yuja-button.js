@@ -48,7 +48,8 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
 
         /**
          * Preprocess the ID in case suffixes/prefixes need to be added
-         * @param id
+         * @param {*} id
+         * @returns {*}
          */
         function helperIdToCssSelector(id) {
             return "#" + (id || "");
@@ -56,7 +57,7 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
 
         /**
          * JQuery helper to convert
-         * @param id
+         * @param {*} id
          * @returns {boolean}
          */
         function helperIDExists(id) {
@@ -76,7 +77,7 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
 
         /**
          * Create toast message styles
-         */        
+         */
         function createSingletonToastMessageStyles() {
             if (!helperIDExists(ID_TOAST_STYLES)) {
                 var styles = [];
@@ -98,7 +99,25 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
                 styles.push("" +
                     ".yuja-toast-message {\n" +
                     // Star logo positioning
-                    "    background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARkSURBVEiJhZZNbFRVFMd/577XDwTiQg3YvuEjRYMLo6nsWAmRGJB2Os82CExbMVExUVGhdWEMLEzAamtiNLoQ6BRYNDMtI9YFiZJA3GHEGKMxpLbMTGvCwg+0rZ1597h4b0o/pniSSW7u+d///5zzv7lvhDtEarBunTqmWWAXwgYUDwAhjzImyhdF12YPxCdyy3FIpc3+Qa9eHN4GngOcOxUBWJBMYJyuZ1vGxv5XYCAdi6voALAKmAUdRsx5KQXf6UyQB5Bax8M4jdYQF9U4UA3cEmR/0s99vqzAQNp7VYVewAikDaZ7n39j9E7lnx6ONThWexRaAKtwqMPPf7hEIKo8A6iqdHU8netd0t2Q1w2QTORPLM71p70jIhwPSaWl3IkAnMnUexb5KRyLHG73c+8vJa9/RFWuAYjoo8lE4fvFmFTG6wJOALeqXNn8THNuwgBYkWPAKoF0JfIwzGvllSqHKiHa/fy7wHlgdbGoRwEkNVi3DseMAoGDeajSzAcy6+9Xgl8BN9oqCc7GpD8+uQQ76G1Shx8Bx6Ab3OieO6Dpff6N0VODG9Y6bmm36G1/lNLjIDVAJtrylVLvQMa7NIcRNCi5F5JtY9dTmVgWtNWKaXYFdgKImiyA6wbHVenQBXWFWhbbB2AwPsgehT1zEAXXDfqBThHNqtKK6k4X2BQe0qsAgXLSQCtwF/APyjkERfTnzsTENwCpofrXUdms4XXeG2GnAuVkOEB7FceA0GCAtQBV9t9JgE4/d1msPAn8DazE4Iz+kD/Ynij0zZmZKPQlE/kXBS2WyY3Vpk4/dxmghmIh6qreLDYJINmau4JoMzCFcqDh4djHS8wc8j4BOQhMKfrU/tbCV+Xc7OzdJhKwBpgAmHar6+YTtCcKXxurTSFOX+gfqr+nnDt3oe5e4HkAY7Wpwy9cmn+2WDtVF1k34QKjwIPGmseAX+YD1ejvocE6tqJU+GNgKHYYwJ3O9ZUcbxxYH2IWhsFsiZajRpQRAGuILwaqmh3hSq7NON5FVe1R1Z4Zx7uIci1MmSeWCAjNYecyYoquzQKBqMZPD8caFiCF8uFmYBvwW/TbhhCOT9kx/8jZtPeAhvgSgWbNgfhETuEUUO1Y7SkDU6k1K4Gtc1LCFcFpFJxGhCvcfii3RlhUkQB6gCpBPutoyxdCtwOOArcUWvrT3hEAVlVtAWrCWUnf9M0125P++GTSH5+cvrlmOyrla1sTYRnIeN2E4/kTzDGY/1xnYk2KDkeVvOnM1H5qV8z0InzZnsgPLZ4zQGrIS6DsrA2q35gxswcR3glJtSnpF0YWCAD0Z7yXBT4IfWKYgK5kW/56JfL5My+JvidIE2AReaU9kfuonF/yyUyl63Yj5iywGiiCnBfRbMnab1faYh5gxnVjgtOIEo8MrUL5S0T3litfVgDg5ODa+1zjvoXwEref6OXCAmcFp7vS811RoBxnMvWeFdMsVnepsBGivy2QB0YVGSHQbEdbvrAcx3+/BcsBIawLQwAAAABJRU5ErkJggg==\") !important;\n" +
+                    "    background-image: " +
+                    "url(\"data:image/png;base64," +
+                    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAB" +
+                    "l0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARkSURBVEiJhZZNbFRVFMd/577XDwTiQg3YvuEjRYMLo6nsWAmR" +
+                    "GJB2Os82CExbMVExUVGhdWEMLEzAamtiNLoQ6BRYNDMtI9YFiZJA3GHEGKMxpLbMTGvCwg+0rZ1597h4b0o/pniSSW7u+d///5z" +
+                    "zv7lvhDtEarBunTqmWWAXwgYUDwAhjzImyhdF12YPxCdyy3FIpc3+Qa9eHN4GngOcOxUBWJBMYJyuZ1vGxv5XYCAdi6voALAKmA" +
+                    "UdRsx5KQXf6UyQB5Bax8M4jdYQF9U4UA3cEmR/0s99vqzAQNp7VYVewAikDaZ7n39j9E7lnx6ONThWexRaAKtwqMPPf7hEIKo8A6" +
+                    "iqdHU8netd0t2Q1w2QTORPLM71p70jIhwPSaWl3IkAnMnUexb5KRyLHG73c+8vJa9/RFWuAYjoo8lE4fvFmFTG6wJOALeqXNn8TH" +
+                    "NuwgBYkWPAKoF0JfIwzGvllSqHKiHa/fy7wHlgdbGoRwEkNVi3DseMAoGDeajSzAcy6+9Xgl8BN9oqCc7GpD8+uQQ76G1Shx8Bx6A" +
+                    "b3OieO6Dpff6N0VODG9Y6bmm36G1/lNLjIDVAJtrylVLvQMa7NIcRNCi5F5JtY9dTmVgWtNWKaXYFdgKImiyA6wbHVenQBXWFWhbbB" +
+                    "2AwPsgehT1zEAXXDfqBThHNqtKK6k4X2BQe0qsAgXLSQCtwF/APyjkERfTnzsTENwCpofrXUdms4XXeG2GnAuVkOEB7FceA0GCAtQB" +
+                    "V9t9JgE4/d1msPAn8DazE4Iz+kD/Ynij0zZmZKPQlE/kXBS2WyY3Vpk4/dxmghmIh6qreLDYJINmau4JoMzCFcqDh4djHS8wc8j4BOQ" +
+                    "hMKfrU/tbCV+Xc7OzdJhKwBpgAmHar6+YTtCcKXxurTSFOX+gfqr+nnDt3oe5e4HkAY7Wpwy9cmn+2WDtVF1k34QKjwIPGmseAX+YD1e" +
+                    "jvocE6tqJU+GNgKHYYwJ3O9ZUcbxxYH2IWhsFsiZajRpQRAGuILwaqmh3hSq7NON5FVe1R1Z4Zx7uIci1MmSeWCAjNYecyYoquzQKBqM" +
+                    "ZPD8caFiCF8uFmYBvwW/TbhhCOT9kx/8jZtPeAhvgSgWbNgfhETuEUUO1Y7SkDU6k1K4Gtc1LCFcFpFJxGhCvcfii3RlhUkQB6gCpBPu" +
+                    "toyxdCtwOOArcUWvrT3hEAVlVtAWrCWUnf9M0125P++GTSH5+cvrlmOyrla1sTYRnIeN2E4/kTzDGY/1xnYk2KDkeVvOnM1H5qV8z0Inz" +
+                    "ZnsgPLZ4zQGrIS6DsrA2q35gxswcR3glJtSnpF0YWCAD0Z7yXBT4IfWKYgK5kW/56JfL5My+JvidIE2AReaU9kfuonF/yyUyl63Yj5iywG" +
+                    "iiCnBfRbMnab1faYh5gxnVjgtOIEo8MrUL5S0T3litfVgDg5ODa+1zjvoXwEref6OXCAmcFp7vS811RoBxnMvWeFdMsVnepsBGivy2QB0Y" +
+                    "VGSHQbEdbvrAcx3+/BcsBIawLQwAAAABJRU5ErkJggg==\") !important;\n" +
                     "    background-repeat: no-repeat;\n" +
                     "    background-position: 15px center;\n" +
                     "    background-color: white;\n" +
@@ -118,7 +137,7 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
                     "    position: relative;\n" +
                     // Indicate it is killable with a click
                     "    cursor: pointer;\n" +
-                    "}")
+                    "}");
                 styles.push("" +
                     ".message-container {\n" +
                     // Offset the star above
@@ -141,7 +160,29 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
                 styles.push("" +
                     ".left-side-border{\n" +
                     // Add the vertical rainbow bar
-                    "    content: url(\"data:image/png;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QMxaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzEzOCA3OS4xNTk4MjQsIDIwMTYvMDkvMTQtMDE6MDk6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU1MTM3NzE3QkE4MzExRTc5RDFBQ0QzQTA5NDIwQkI2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU1MTM3NzE4QkE4MzExRTc5RDFBQ0QzQTA5NDIwQkI2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTUxMzc3MTVCQTgzMTFFNzlEMUFDRDNBMDk0MjBCQjYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTUxMzc3MTZCQTgzMTFFNzlEMUFDRDNBMDk0MjBCQjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8vL0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8oKD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAARCABKAAUDASIAAhEBAxEB/8QAZwABAAMBAAAAAAAAAAAAAAAAAAMEBQIBAQEBAQAAAAAAAAAAAAAAAAQCAwUQAQACAQUBAAAAAAAAAAAAAAABYRORoQISUhQRAAECBQUBAAAAAAAAAAAAAAABEyFhAhJS8JGh4SIU/9oADAMBAAIRAxEAPwDUGbk4+o1gR8qZcdhXqsdbGZ0kXfl50F3Dm0ma+KaEmSByHq5GsSlnrcUM1CmxNqEHao3HIZAn1M//2Q==\");\n" +
+                    "    content: " +
+                    "url(\"data:image/png;base64," +
+                    "/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAAAAD/4QMxaHR0cDovL25z" +
+                    "LmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJl" +
+                    "U3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJB" +
+                    "ZG9iZSBYTVAgQ29yZSA1LjYtYzEzOCA3OS4xNTk4MjQsIDIwMTYvMDkvMTQtMDE6MDk6MDEgICAgICAg" +
+                    "ICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3lu" +
+                    "dGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25z" +
+                    "LmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEu" +
+                    "MC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3Vy" +
+                    "Y2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChNYWNpbnRvc2gp" +
+                    "IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU1MTM3NzE3QkE4MzExRTc5RDFBQ0QzQTA5NDIwQkI2" +
+                    "IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU1MTM3NzE4QkE4MzExRTc5RDFBQ0QzQTA5NDIwQkI2" +
+                    "Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTUxMzc3MTVCQTgz" +
+                    "MTFFNzlEMUFDRDNBMDk0MjBCQjYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTUxMzc3MTZCQTgz" +
+                    "MTFFNzlEMUFDRDNBMDk0MjBCQjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94Onht" +
+                    "cG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAbGhopHSlBJiZBQi8v" +
+                    "L0JHPz4+P0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHAR0pKTQmND8o" +
+                    "KD9HPzU/R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0f/wAAR" +
+                    "CABKAAUDASIAAhEBAxEB/8QAZwABAAMBAAAAAAAAAAAAAAAAAAMEBQIBAQEBAQAAAAAAAAAAAAAAAAQC" +
+                    "AwUQAQACAQUBAAAAAAAAAAAAAAABYRORoQISUhQRAAECBQUBAAAAAAAAAAAAAAABEyFhAhJS8JGh4SIU" +
+                    "/9oADAMBAAIRAxEAPwDUGbk4+o1gR8qZcdhXqsdbGZ0kXfl50F3Dm0ma+KaEmSByHq5GsSlnrcUM1Cmx" +
+                    "NqEHao3HIZAn1M//2Q==\");\n" +
                     "    width: 5px;\n" +
                     // Ensure it is the size of the parent
                     "    height: 100%;\n" +
@@ -167,17 +208,18 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
                     "    background-color: #ff0005;\n" +
                     "    width: 100%;\n" +
                     "}"
-                )
+                );
                 var $toastMesageStyles = $("<style>")
-                    .attr("id",ID_TOAST_STYLES)
+                    .attr("id", ID_TOAST_STYLES)
                     // Add the styles as an array, making it inline text and thus apply to the browser
-                    .append(styles)
+                    .append(styles);
                 $(document.head).append($toastMesageStyles);
             }
         }
 
         /**
-         * Toast messages are stackable and each needs to be unique. The uniqueness can be guaranteed with the jquery instance of classes count + 1
+         * Toast messages are stackable and each needs to be unique.
+         * The uniqueness can be guaranteed with the jquery instance of classes count + 1
          * @returns {*}
          */
         function getNextAvailableToastMessageUniqueID() {
@@ -187,6 +229,7 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
 
         /**
          * Helper to construct message
+         * @returns {*}
          */
         function helperConstructMessage() {
             var $leftSideBar = $("<div>")
@@ -210,7 +253,8 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
 
         /**
          * Hide the toast message
-         * @param {*} $toast 
+         * @param {*} $toast
+         * @returns {*}
          */
         function killToastMessage($toast) {
             return function() {
@@ -220,12 +264,13 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
                     $toast
                         .css({display: "none"});
                 }
-            }
+            };
         }
 
         /**
          * Fade out toast message before hiding it
-         * @param {*} newToastId 
+         * @param {*} newToastId
+         * @returns {*}
          */
         function fadeAndKillToastMessage(newToastId) {
             return function() {
@@ -240,7 +285,7 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
                     // Delete it
                     setTimeout(killToastMessage($toast), TOAST_FADE_OUT_DURATION_MS);
                 }
-            }
+            };
         }
 
         /**
@@ -259,7 +304,7 @@ YUI.add('moodle-atto_yuja-button', function (Y, NAME) {
                             // Toast class adds the progress bar above the message
                             .attr("class", CLASS_YUJA_TOASTS)
                             .on("click", function(e) {
-                                killToastMessage($(helperIdToCssSelector(newToastId)))
+                                killToastMessage($(helperIdToCssSelector(newToastId)));
                             })
                             .append(helperConstructMessage())
                     );
@@ -307,7 +352,7 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
              * This request written without JQuery for backwards compatability with Moodle < 2.9
              */
             if (window.XMLHttpRequest) {
-                params.xmlhttp = new XMLHttpRequest();  // Code for IE7+, Firefox, Chrome, Opera, Safari
+                params.xmlhttp = new XMLHttpRequest(); // Code for IE7+, Firefox, Chrome, Opera, Safari
             } else {
                 params.xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // Code for IE6, IE5
             }
@@ -364,16 +409,13 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
 
         } else if (params.error !== undefined) {
             showAlertMessage("Error", M.util.get_string('phperror', 'atto_yuja'));
-            // alert(ed.getLang('yuja.phperror'));
             error = true;
         } else if (params.videos !== undefined && params.videos.success === false) {
-                // alert(ed.getLang('yuja.loadingerror'));
-                showAlertMessage("Loading...", M.util.get_string('loadingerror', 'atto_yuja'));
-                error = true;
+            showAlertMessage("Loading...", M.util.get_string('loadingerror', 'atto_yuja'));
+            error = true;
         } else if (params.videos === undefined || (typeof yuja === "undefined" || yuja === undefined)) {
-                // alert(ed.getLang('yuja.notready'));
-                showAlertMessage("Loading...", M.util.get_string('notready', 'atto_yuja'));
-                error = true;
+            showAlertMessage("Loading...", M.util.get_string('notready', 'atto_yuja'));
+            error = true;
         }
 
         if (error) {
@@ -390,7 +432,7 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
 
     /**
      * Inserts the embed string returned by YuJa Media Selector into the editor
-     * @param {*} embedString 
+     * @param {*} embedString
      */
     _insertContent: function(embedString) {
         this.editor.focus();
