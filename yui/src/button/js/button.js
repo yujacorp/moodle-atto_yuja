@@ -335,6 +335,7 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
     _mediaSelector: null,
     /** The parameters for the media selector */
     _params: {},
+    _handlerLoaded: false,
     /**
      * Init
      */
@@ -345,6 +346,8 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
         params.jsUrl = this.get('yujaJsUrl');
         params.error = this.get('yujaError');
 
+        params.ltiVersion = this.get('ltiVersion');
+        params.lti3LoginInitiationUrl = this.get('lti3LoginInitUrl');
 
             /**
              * This request written without JQuery for backwards compatability with Moodle < 2.9
@@ -392,6 +395,11 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
      */
     _openMediaSelector: function() {
         var params = this._params;
+
+        if (params.ltiVersion == "1.3") {
+            this._loadIframe(params.lti3LoginInitiationUrl);
+            return;
+        }
 
         var error = false;
         if (!params.isYujaConnected) {
@@ -446,6 +454,42 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
         var script = document.createElement('script');
         script.src = url;
         (document.body || document.head || document.documentElement).appendChild(script);
+    },
+ 
+    _loadIframe: function(url) {
+        var script = document.createElement('script');
+        script.onload = function () {
+            require(['jquery'], function($) {
+                $("#yujaVideoChooserIFrame").attr('src',url);
+                
+                if (!this._handlerLoaded) {
+                    if (window.addEventListener) {  // all browsers except IE before version 9
+                        window.addEventListener ("message", OnMessage.bind(this), false);
+                    } else {
+                        if (window.attachEvent) {   // IE before version 9
+                            window.attachEvent("onmessage", OnMessage.bind(this));
+                        }
+                    }
+                    
+                    function OnMessage(event) {
+                        if(event.data.type == "getVideo") {
+            
+                            var embedString = event.data.embed;
+                            this._insertContent(embedString);
+                            
+                            require(['jquery'], function($) {
+                                $(".yuja-overlay").removeClass('yuja-overlay-visible');
+                                $("#yujaVideoChooserIFrame").attr('src',"");
+                            });
+                        }
+                    };
+
+                    this._handlerLoaded = true;
+                }
+            }.bind(this));
+        }.bind(this);
+        script.src = location.origin + "/local/yuja/media_selection.js";
+        (document.body || document.head || document.documentElement).appendChild(script);
     }
 
 }, {ATTRS: {
@@ -456,6 +500,12 @@ Y.namespace('M.atto_yuja').Button = Y.Base.create('button', Y.M.editor_atto.Edit
             value: undefined
         },
         yujaError: {
+            value: undefined
+        },
+        ltiVersion: {
+            value: undefined
+        },
+        lti3LoginInitUrl: {
             value: undefined
         }
     }

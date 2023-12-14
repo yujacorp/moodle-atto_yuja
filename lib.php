@@ -49,7 +49,7 @@ function atto_yuja_strings_for_js() {
 function atto_yuja_params_for_js() {
 
     $yujaclient = new yuja_client();
-    $params = $yujaclient->get_texteditor_params();
+    $params = $yujaclient->get_texteditor_params('atto');
 
     return $params;
 }
